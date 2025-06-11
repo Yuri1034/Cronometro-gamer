@@ -1,0 +1,52 @@
+    h1 {
+        text-align: center;
+        color: rgb(220, 223, 49);
+    }
+    
+    .time {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        color: rgb(1, 1, 7);
+        min-width: 90px;
+    }
+    
+    .separator {
+        padding: 0 10px;
+        color: rgb(226, 185, 102);
+    }
+    
+    #miliseconds {
+        font-size: 30px;
+        color: rgb(0, 0, 0);
+    }
+    
+    .buttons {
+        display: flex;
+        gap: irem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 30px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .btn:hover {
+        transform: scale(1.1);
+    }
+    
+    #startbtn {
+        background-color: #175cff;
+        color: #fff;
+    }
+    
+    #pausebtn,
+    #resumebtn {
+        display: none;
+    }
