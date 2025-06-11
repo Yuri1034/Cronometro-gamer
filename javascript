@@ -1,19 +1,24 @@
+const minutesEl = document.querySelector("#minutes");
+const secondsEl = document.querySelector("#seconds");
+const milisecondsEl = document.querySelector("#milliseconds");
 const startBtn = document.querySelector("#startBtn");
 const pauseBtn = document.querySelector("#pauseBtn");
 const resumeBtn = document.querySelector("#resumeBtn");
 const resetBtn = document.querySelector("#resetBtn");
 
+let interval;
 let minutes = 0;
 let seconds = 0;
 let miliseconds = 0;
 let ispaused = false;
 
-startBtn.addEventListener("click", startTimer)
-pauseBtn.addEventListener("click", pauseTimer)
-resumeBtn.addEventListener("click", resumeTimer)
-resetBtn.addEventListener("click", resetTimer)
+startBtn.addEventListener("click", startTimer);
+pauseBtn.addEventListener("click", pauseTimer);
+resumeBtn.addEventListener("click", resumeTimer);
+resetBtn.addEventListener("click", resetTimer);
 
 function startTimer() {
+   
     interval = setInterval(() => {
         if (!ispaused) {
             miliseconds += 10;
@@ -34,20 +39,20 @@ function startTimer() {
         }
     }, 10);
 
-    startBtn.Style.display = "none"
-    pauseBtn.Style.display = "block"
+    startBtn.Style.display = "none";
+    pauseBtn.Style.display = "block";
 }
 
 function pauseTimer(time) {
-    ispaused = true
-    pauseBtn.style.display = "none"
-    resumeBtn.style.display = "block"
+    ispaused = true;
+    pauseBtn.style.display = "none";
+    resumeBtn.style.display = "block";
 }
 
 function resumeTimer() {
-    ispaused = false
-    pauseBtn.style.display = "block"
-    resumeBtn.style.display = "none"
+    ispaused = false;
+    pauseBtn.style.display = "block";
+    resumeBtn.style.display = "none";
 }
 
 function resetTimer() {
