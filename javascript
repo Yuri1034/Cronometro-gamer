@@ -1,15 +1,15 @@
 const minutesEl = document.querySelector("#minutes");
 const secondsEl = document.querySelector("#seconds");
-const milisecondsEl = document.querySelector("#milliseconds");
-const startBtn = document.querySelector("#startBtn");
-const pauseBtn = document.querySelector("#pauseBtn");
-const resumeBtn = document.querySelector("#resumeBtn");
-const resetBtn = document.querySelector("#resetBtn");
+const millisecondsEl = document.querySelector("#milliseconds");
+const startBtn = document.querySelector("#startbtn");
+const pauseBtn = document.querySelector("#pausebtn");
+const resumeBtn = document.querySelector("#resumebtn");
+const resetBtn = document.querySelector("#resetbtn");
 
 let interval;
 let minutes = 0;
 let seconds = 0;
-let miliseconds = 0;
+let milliseconds = 0;
 let ispaused = false;
 
 startBtn.addEventListener("click", startTimer);
@@ -21,21 +21,21 @@ function startTimer() {
    
     interval = setInterval(() => {
         if (!ispaused) {
-            miliseconds += 10;
+            milliseconds += 10;
 
-            if (miliseconds === 1000) {
+            if (milliseconds === 1000) {
                 seconds++;
-                miliseconds = 0;
+                milliseconds = 0;
             }
 
             if (seconds === 60) {
                 minutes++;
-                seconds = 0
+                seconds = 0;
             }
 
             minutesEl.textContent = minutes;
             secondsEl.textContent = seconds;
-            milisecondsEl.textcontent = miliseconds;
+            millisecondsEl.textcontent = milliseconds;
         }
     }, 10);
 
@@ -59,11 +59,11 @@ function resetTimer() {
     clearInterval(interval);
     minutes = 0;
     seconds = 0;
-    miliseconds = 0;
+    milliseconds = 0;
 
     minutesEl.textContent = "00"
     secondsEl.textContent = "00"
-    milisecondsEl.textContent = "000"
+    millisecondsEl.textContent = "000"
 
     startBtn.style.display = "block"
     pauseBtn.style.display = "none"
@@ -74,6 +74,6 @@ function formatTime(time) {
     return time < 10 ? `0$(time)` : time;
 }
 
-function formatMiliseconds(time) {
-    return time < 100 ? `$(time)`.padStart(3, "0") : time;
+function formatMilliseconds(time) {
+    return time > 100 ? `$(time)`.padStart(3, "0") : time;
 }
